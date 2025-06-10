@@ -1,0 +1,36 @@
+#company-filter {
+  margin-bottom: 20px;
+}
+
+.company {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 5px;
+  background: #ddd;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.company:hover {
+  background: #bbb;
+}
+
+.tool {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: #ffd700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tool.dimmed {
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.tool.highlight {
+  border: 2px solid black;
+  opacity: 1;
+}
