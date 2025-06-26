@@ -1,0 +1,202 @@
+{
+  "nodes": [
+    { "id": "SDET", "type": "center" },
+    
+    { "id": "Professional Experience", "type": "branch" },
+    { "id": "Core Testing Skills", "type": "branch" },
+    { "id": "Technology Stack", "type": "branch" },
+    
+    { "id": "Work Experience", "type": "sub-branch" },
+    { "id": "Project Experience", "type": "sub-branch" },
+    
+    { "id": "Testing Types", "type": "sub-branch" },
+    { "id": "Testing Approaches", "type": "sub-branch" },
+    
+    { "id": "Programming Languages", "type": "sub-branch" },
+    { "id": "Automation Tools", "type": "sub-branch" },
+    { "id": "Infrastructure", "type": "sub-branch" },
+    
+    { "id": "Corporate Companies", "type": "category" },
+    { "id": "Financial Services", "type": "category" },
+    
+    { "id": "Personal Projects", "type": "category" },
+    { "id": "Open Source", "type": "category" },
+    
+    { "id": "Functional Testing", "type": "category" },
+    { "id": "Non-Functional Testing", "type": "category" },
+    
+    { "id": "Manual Testing", "type": "category" },
+    { "id": "Automation Testing", "type": "category" },
+    
+    { "id": "Backend Languages", "type": "category" },
+    { "id": "Frontend Languages", "type": "category" },
+    
+    { "id": "UI Automation", "type": "category" },
+    { "id": "API Testing Tools", "type": "category" },
+    
+    { "id": "CI/CD & DevOps", "type": "category" },
+    { "id": "Databases", "type": "category" },
+    
+    { "id": "Apple", "type": "company" },
+    { "id": "Cigna", "type": "company" },
+    
+    { "id": "Goldman Sachs", "type": "company" },
+    { "id": "Mastercard", "type": "company" },
+    
+    { "id": "Web Applications", "type": "skill" },
+    { "id": "Mobile Applications", "type": "skill" },
+    
+    { "id": "Performance Testing", "type": "skill" },
+    { "id": "Security Testing", "type": "skill" },
+    
+    { "id": "Exploratory Testing", "type": "skill" },
+    { "id": "Test Planning", "type": "skill" },
+    
+    { "id": "Framework Development", "type": "skill" },
+    { "id": "Test Maintenance", "type": "skill" },
+    
+    { "id": "Java", "type": "language" },
+    { "id": "Python", "type": "language" },
+    
+    { "id": "JavaScript", "type": "language" },
+    { "id": "TypeScript", "type": "language" },
+    
+    { "id": "Selenium WebDriver", "type": "tool" },
+    { "id": "Cypress", "type": "tool" },
+    
+    { "id": "REST Assured", "type": "tool" },
+    { "id": "Postman", "type": "tool" },
+    
+    { "id": "Jenkins", "type": "devops" },
+    { "id": "GitHub Actions", "type": "devops" },
+    
+    { "id": "SQL", "type": "database" },
+    { "id": "MongoDB", "type": "database" },
+    
+    { "id": "iOS Testing", "type": "detail" },
+    { "id": "Android Testing", "type": "detail" },
+    
+    { "id": "Load Testing", "type": "detail" },
+    { "id": "Stress Testing", "type": "detail" },
+    
+    { "id": "Penetration Testing", "type": "detail" },
+    { "id": "OWASP Testing", "type": "detail" },
+    
+    { "id": "Bug Reporting", "type": "detail" },
+    { "id": "Test Documentation", "type": "detail" },
+    
+    { "id": "Page Object Model", "type": "detail" },
+    { "id": "Data-Driven Testing", "type": "detail" },
+    
+    { "id": "TestNG", "type": "framework" },
+    { "id": "JUnit", "type": "framework" },
+    
+    { "id": "Playwright", "type": "framework" },
+    { "id": "Appium", "type": "framework" },
+    
+    { "id": "JMeter", "type": "framework" },
+    { "id": "Gatling", "type": "framework" },
+    
+    { "id": "Docker", "type": "framework" },
+    { "id": "Kubernetes", "type": "framework" }
+  ],
+  "edges": [
+    { "from": "SDET", "to": "Professional Experience" },
+    { "from": "SDET", "to": "Core Testing Skills" },
+    { "from": "SDET", "to": "Technology Stack" },
+    
+    { "from": "Professional Experience", "to": "Work Experience" },
+    { "from": "Professional Experience", "to": "Project Experience" },
+    
+    { "from": "Core Testing Skills", "to": "Testing Types" },
+    { "from": "Core Testing Skills", "to": "Testing Approaches" },
+    
+    { "from": "Technology Stack", "to": "Programming Languages" },
+    { "from": "Technology Stack", "to": "Automation Tools" },
+    { "from": "Technology Stack", "to": "Infrastructure" },
+    
+    { "from": "Work Experience", "to": "Corporate Companies" },
+    { "from": "Work Experience", "to": "Financial Services" },
+    
+    { "from": "Project Experience", "to": "Personal Projects" },
+    { "from": "Project Experience", "to": "Open Source" },
+    
+    { "from": "Testing Types", "to": "Functional Testing" },
+    { "from": "Testing Types", "to": "Non-Functional Testing" },
+    
+    { "from": "Testing Approaches", "to": "Manual Testing" },
+    { "from": "Testing Approaches", "to": "Automation Testing" },
+    
+    { "from": "Programming Languages", "to": "Backend Languages" },
+    { "from": "Programming Languages", "to": "Frontend Languages" },
+    
+    { "from": "Automation Tools", "to": "UI Automation" },
+    { "from": "Automation Tools", "to": "API Testing Tools" },
+    
+    { "from": "Infrastructure", "to": "CI/CD & DevOps" },
+    { "from": "Infrastructure", "to": "Databases" },
+    
+    { "from": "Corporate Companies", "to": "Apple" },
+    { "from": "Corporate Companies", "to": "Cigna" },
+    
+    { "from": "Financial Services", "to": "Goldman Sachs" },
+    { "from": "Financial Services", "to": "Mastercard" },
+    
+    { "from": "Functional Testing", "to": "Web Applications" },
+    { "from": "Functional Testing", "to": "Mobile Applications" },
+    
+    { "from": "Non-Functional Testing", "to": "Performance Testing" },
+    { "from": "Non-Functional Testing", "to": "Security Testing" },
+    
+    { "from": "Manual Testing", "to": "Exploratory Testing" },
+    { "from": "Manual Testing", "to": "Test Planning" },
+    
+    { "from": "Automation Testing", "to": "Framework Development" },
+    { "from": "Automation Testing", "to": "Test Maintenance" },
+    
+    { "from": "Backend Languages", "to": "Java" },
+    { "from": "Backend Languages", "to": "Python" },
+    
+    { "from": "Frontend Languages", "to": "JavaScript" },
+    { "from": "Frontend Languages", "to": "TypeScript" },
+    
+    { "from": "UI Automation", "to": "Selenium WebDriver" },
+    { "from": "UI Automation", "to": "Cypress" },
+    
+    { "from": "API Testing Tools", "to": "REST Assured" },
+    { "from": "API Testing Tools", "to": "Postman" },
+    
+    { "from": "CI/CD & DevOps", "to": "Jenkins" },
+    { "from": "CI/CD & DevOps", "to": "GitHub Actions" },
+    
+    { "from": "Databases", "to": "SQL" },
+    { "from": "Databases", "to": "MongoDB" },
+    
+    { "from": "Mobile Applications", "to": "iOS Testing" },
+    { "from": "Mobile Applications", "to": "Android Testing" },
+    
+    { "from": "Performance Testing", "to": "Load Testing" },
+    { "from": "Performance Testing", "to": "Stress Testing" },
+    
+    { "from": "Security Testing", "to": "Penetration Testing" },
+    { "from": "Security Testing", "to": "OWASP Testing" },
+    
+    { "from": "Test Planning", "to": "Bug Reporting" },
+    { "from": "Test Planning", "to": "Test Documentation" },
+    
+    { "from": "Framework Development", "to": "Page Object Model" },
+    { "from": "Framework Development", "to": "Data-Driven Testing" },
+    
+    { "from": "Java", "to": "TestNG" },
+    { "from": "Java", "to": "JUnit" },
+    
+    { "from": "Selenium WebDriver", "to": "Playwright" },
+    { "from": "Selenium WebDriver", "to": "Appium" },
+    
+    { "from": "Performance Testing", "to": "JMeter" },
+    { "from": "Performance Testing", "to": "Gatling" },
+    
+    { "from": "Jenkins", "to": "Docker" },
+    { "from": "Jenkins", "to": "Kubernetes" }
+  ]
+}

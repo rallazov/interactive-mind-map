@@ -2,22 +2,181 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Interactive Mind Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDET Career Mind Map</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Cytoscape.js CDN -->
+  <script src="https://unpkg.com/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
+  <!-- Add Feather Icons for UI elements -->
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
 
-  <h1 id="role-title"></h1>
+  <div id="mindmap-container">
+    <!-- Header with title and controls -->
+    <header class="header">
+      <div class="header-content">
+        <h1>SDET Career Mind Map</h1>
+        <p class="subtitle">Interactive visualization of Software Development Engineer in Test expertise</p>
+      </div>
+      
+      <!-- Control Panel -->
+      <div class="controls">
+        <button id="fit-btn" class="control-btn" title="Fit to screen (F)">
+          <i data-feather="maximize"></i>
+        </button>
+        <button id="reset-btn" class="control-btn" title="Reset view (R)">
+          <i data-feather="refresh-cw"></i>
+        </button>
+        <button id="center-btn" class="control-btn" title="Center view">
+          <i data-feather="target"></i>
+        </button>
+        <button id="help-btn" class="control-btn" title="Show help">
+          <i data-feather="help-circle"></i>
+        </button>
+      </div>
+    </header>
+    
+    <!-- Legend with improved styling -->
+    <div class="legend">
+      <h3>Node Types</h3>
+      <div class="legend-grid">
+        <div class="legend-item">
+          <div class="legend-color center"></div>
+          <span>Central Focus</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color category"></div>
+          <span>Main Branches</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color sub-branch"></div>
+          <span>Sub Categories</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color concept"></div>
+          <span>Categories</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color company"></div>
+          <span>Companies</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color tool"></div>
+          <span>Skills & Tools</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color detail"></div>
+          <span>Details</span>
+        </div>
+      </div>
+    </div>
 
-  <!-- 🔹 Company Filter Section -->
-  <div id="company-filter">
-    <h2>Companies</h2>
-    <div id="company-list"></div>
+    <!-- Main mindmap visualization -->
+    <div class="mindmap-wrapper">
+      <div id="cy-mindmap"></div>
+      
+      <!-- Loading indicator -->
+      <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Loading mind map...</p>
+      </div>
+      
+      <!-- Help overlay -->
+      <div id="help-overlay" class="help-overlay hidden">
+        <div class="help-content">
+          <div class="help-header">
+            <h3>Navigation Guide</h3>
+            <button id="close-help" class="close-btn">
+              <i data-feather="x"></i>
+            </button>
+          </div>
+          <div class="help-body">
+            <div class="help-section">
+              <h4>Mouse Controls</h4>
+              <ul>
+                <li><strong>Hover:</strong> Highlight connected nodes</li>
+                <li><strong>Click & Drag:</strong> Pan around the map</li>
+                <li><strong>Mouse Wheel:</strong> Zoom in/out</li>
+                <li><strong>Click Node:</strong> Focus on connections</li>
+              </ul>
+            </div>
+            <div class="help-section">
+              <h4>Keyboard Shortcuts</h4>
+              <ul>
+                <li><strong>F:</strong> Fit to screen</li>
+                <li><strong>R:</strong> Reset view</li>
+                <li><strong>Escape:</strong> Clear highlights</li>
+              </ul>
+            </div>
+            <div class="help-section">
+              <h4>Touch Controls</h4>
+              <ul>
+                <li><strong>Tap:</strong> Select node</li>
+                <li><strong>Pinch:</strong> Zoom</li>
+                <li><strong>Drag:</strong> Pan</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer with additional info -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p><strong>Tip:</strong> Hover over nodes to see connections • Use controls above for navigation</p>
+        <div class="stats" id="stats">
+          <span id="node-count">Loading...</span>
+        </div>
+      </div>
+    </footer>
   </div>
 
-  <!-- 🔹 Tool Nodes -->
-  <div id="mindmap-container"></div>
-
-  <script src="script.js"></script>
+  <script src="cytoscape-mindmap.js"></script>
+  
+  <!-- Initialize UI -->
+  <script>
+    // Initialize Feather icons
+    document.addEventListener('DOMContentLoaded', function() {
+      feather.replace();
+      
+      // Control button handlers
+      document.getElementById('fit-btn').addEventListener('click', () => {
+        if (window.cy) window.cy.fit(null, 60);
+      });
+      
+      document.getElementById('reset-btn').addEventListener('click', () => {
+        if (window.cy) {
+          window.cy.reset();
+          window.cy.fit(null, 60);
+        }
+      });
+      
+      document.getElementById('center-btn').addEventListener('click', () => {
+        if (window.cy) window.cy.center();
+      });
+      
+      document.getElementById('help-btn').addEventListener('click', () => {
+        document.getElementById('help-overlay').classList.remove('hidden');
+      });
+      
+      document.getElementById('close-help').addEventListener('click', () => {
+        document.getElementById('help-overlay').classList.add('hidden');
+      });
+      
+      // Close help on overlay click
+      document.getElementById('help-overlay').addEventListener('click', (e) => {
+        if (e.target.id === 'help-overlay') {
+          document.getElementById('help-overlay').classList.add('hidden');
+        }
+      });
+      
+      // Hide loading after mindmap loads
+      setTimeout(() => {
+        document.getElementById('loading').style.display = 'none';
+      }, 2000);
+    });
+  </script>
 </body>
 </html>
